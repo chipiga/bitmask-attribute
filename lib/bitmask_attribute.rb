@@ -28,7 +28,7 @@ module BitmaskAttribute
     #######
 
     def validate_for(model)
-      unless (model.columns.detect { |col| col.name == attribute.to_s } rescue true)
+      unless (File.basename($0) == "rake" || model.columns.detect { |col| col.name == attribute.to_s } rescue true)
         raise ArgumentError, "`#{attribute}' is not an attribute of `#{model}'"
       end
     end
